@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "577571917209",
+    "project_id": "myduty-13134",
+    "storage_bucket": "myduty-13134.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577571917209:android:351a559ae56ad8f1279708",
+        "android_client_info": {
+          "package_name": "com.myduty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577571917209-4gnkesunbf29tlfbbsdinb84d2agb2v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsYacCoHMOhiodRfh1B-LEl7mjuifwyXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577571917209-4gnkesunbf29tlfbbsdinb84d2agb2v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

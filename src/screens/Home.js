@@ -1,0 +1,138 @@
+import React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  ImageBackground,
+  Modal,
+  RefreshControl,
+} from 'react-native';
+import Container from '../components/Container';
+import globalStyles from '../styles/globalStyles';
+import colors from '../constants/colors';
+import Menu from '../assets/icons/menu.svg';
+import Filter from '../assets/icons/filter.svg';
+import Input from '../components/Input';
+import themeInputStyles from '../styles/themeInputStyles';
+import SearchIcon from '../assets/icons/search_icon.svg';
+import Post from '../components/Post';
+import List from '../components/List';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import * as postsAction from '../store/actions/posts';
+import {useDispatch, useSelector} from 'react-redux';
+
+const Home = ({navigation}) => {
+  const dispatch = useDispatch();
+  const [refreshing, setrefreshing] = React.useState(false);
+  React.useEffect(() => {
+    dispatch(postsAction.getAllPostsRequest());
+  }, []);
+
+  const {posts} = useSelector(state => ({
+    posts: state.postReducer.posts,
+  }));
+
+  const onRefresh = React.useCallback(() => {
+    setrefreshing(true);
+    dispatch(postsAction.getAllPostsRequest());
+    setTimeout(() => {
+      setrefreshing(false);
+    }, 3000);
+  }, []);
+
+  return (
+    <Container
+      showFooter
+      scroll
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      contentContainerStyle={{padding: 0, paddingTop: 20}}>
+      <View style={globalStyles.px20}>
+        <View
+          style={[
+            globalStyles.row,
+            globalStyles.spaceBetween,
+            globalStyles.alignCenter,
+          ]}>
+          <Text
+            style={[
+              globalStyles.title,
+              globalStyles.px20,
+              {color: colors.tertiary},
+            ]}>
+            My Duty App
+          </Text>
+          <View style={[styles.iconContainer, globalStyles.shadow]}>
+            <TouchableOpacity onPress={() => navigation.navigate('Sidebar')}>
+              <Menu />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View
+          style={[
+            globalStyles.row,
+            globalStyles.spaceBetween,
+            globalStyles.alignCenter,
+            globalStyles.mt20,
+          ]}>
+          <Input
+            onFocus={() => navigation.navigate('Search')}
+            icon={SearchIcon}
+            customInputStyle={themeInputStyles.searchInputStyle}
+            customContainerStyle={[globalStyles.flex1, globalStyles.mr24]}
+            placeholder="Search For Profile/Post"
+            placeholderTextColor={colors.tertiary}
+          />
+          <View style={[styles.iconContainer, globalStyles.shadow]}>
+            <TouchableOpacity onPress={() => navigation.navigate('Filters')}>
+              <Filter />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={[globalStyles.row, globalStyles.mt24]}>
+          <Text
+            style={[globalStyles.font15, {color: colors.tertiary}]}
+            onPress={onRefresh}>
+            Refresh
+          </Text>
+          <Text
+            style={[
+              globalStyles.font15,
+              {color: colors.gray},
+              globalStyles.ml16,
+            ]}>
+            Updated 0 min
+          </Text>
+        </View>
+      </View>
+      <FlatList
+        data={posts}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({item, index}) => <Post {...item} />}
+        contentContainerStyle={{paddingBottom: 100}}
+      />
+      {/* <List
+        type="flat"
+        listItem={Post}
+        block
+        contentContainerStyle={globalStyles.listBottom}
+        navigation={navigation}
+        data={posts}
+      /> */}
+    </Container>
+  );
+};
+
+const styles = StyleSheet.create({
+  iconContainer: {
+    height: 56,
+    width: 56,
+    borderRadius: 28,
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+export default Home;
