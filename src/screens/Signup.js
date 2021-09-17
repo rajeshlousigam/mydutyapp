@@ -51,8 +51,7 @@ const Signup = () => {
       return;
     }
 
-    let mailFormat =
-      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
+    let mailFormat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
     if (!mailFormat.test(email)) {
       Toast.show({
         type: 'error',
@@ -128,7 +127,7 @@ const Signup = () => {
         'public_profile',
         'user_friends',
       ]).then(
-        function (result) {
+        function(result) {
           console.log(result);
           if (result.isCancelled) {
             console.log('Login cancelled');
@@ -143,7 +142,7 @@ const Signup = () => {
             );
           }
         },
-        function (error) {
+        function(error) {
           console.log('Login fail with error: ' + error);
         },
       );
@@ -269,8 +268,8 @@ const Signup = () => {
           <Text style={globalStyles.title}>Welcome to</Text>
           <Text style={globalStyles.appTitle}>My Duty App</Text>
           <Text style={[styles.small, {lineHeight: 22}]}>
-            Best cloud storage platform for all business and individuals to
-            manage there data
+            Connecting Everyone and helping everyone under one roof of
+            Application
           </Text>
           <Text style={[styles.small, globalStyles.mt40]}>Join For Free.</Text>
         </View>

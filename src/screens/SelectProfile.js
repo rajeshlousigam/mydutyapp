@@ -57,6 +57,7 @@ const SelectProfile = ({route: {params}}) => {
         style={[
           globalStyles.alignCenter,
           globalStyles.container,
+          {backgroundColor: null},
           globalStyles.py20,
         ]}>
         <Text style={[globalStyles.appTitle, {color: colors.textprimary}]}>
@@ -75,12 +76,13 @@ const SelectProfile = ({route: {params}}) => {
             globalStyles.label,
             {color: colors.textprimary, textAlign: 'center'},
             globalStyles.mt16,
+            globalStyles.zIndex1,
           ]}>
           You can choose one of the option to continue the application
         </Text>
       </View>
       <Image
-        style={[styles.background, {width, height: height / 1.65}]}
+        style={[styles.background, {width, zIndex: -1, height: height / 1.65}]}
         source={require('../assets/background/background_3.png')}
       />
 

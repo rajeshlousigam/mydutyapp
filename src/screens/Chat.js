@@ -35,7 +35,8 @@ const Chat = ({navigation, route}) => {
               <Image
                 style={styles.user}
                 source={{
-                  uri: 'https://static.billboard.com/files/media/Lee-Burridge-lost-desert-2016-billboard-1548-compressed.jpg',
+                  uri:
+                    'https://static.billboard.com/files/media/Lee-Burridge-lost-desert-2016-billboard-1548-compressed.jpg',
                 }}
               />
               <View style={globalStyles.ml24}>
@@ -56,7 +57,7 @@ const Chat = ({navigation, route}) => {
       </View>
       <View style={[globalStyles.flex1, globalStyles.mb20]}>
         <List
-          style={globalStyles.mx8}
+          contentContainerStyle={[globalStyles.mx8, globalStyles.listBottom2]}
           data={[
             {
               uid: '1',
@@ -67,6 +68,51 @@ const Chat = ({navigation, route}) => {
                   <Text style={{color: 'rgba(34, 33, 91, 0.6)'}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Ornare pretium placerat ut platea.
+                  </Text>
+                </Text>
+              ),
+            },
+            {
+              uid: '',
+              createdAt: '12:27 PM',
+              message: (
+                <Text style={{fontWeight: 'normal', lineHeight: 18}}>
+                  <Text style={{color: '#943993', borderBottomWidth: 1}}>
+                    https://www.businessinsider.com/what-is-my-instagram-url?IR=T
+                  </Text>
+                  <Text style={{color: 'rgba(34, 33, 91, 0.6)'}}>
+                    This link is associated with the post where user commented
+                    and and clicked on the contact admin button.
+                  </Text>
+                </Text>
+              ),
+            },
+            {
+              uid: '',
+              createdAt: '12:27 PM',
+              message: (
+                <Text style={{fontWeight: 'normal', lineHeight: 18}}>
+                  <Text style={{color: '#943993', borderBottomWidth: 1}}>
+                    https://www.businessinsider.com/what-is-my-instagram-url?IR=T
+                  </Text>
+                  <Text style={{color: 'rgba(34, 33, 91, 0.6)'}}>
+                    This link is associated with the post where user commented
+                    and and clicked on the contact admin button.
+                  </Text>
+                </Text>
+              ),
+            },
+            {
+              uid: '',
+              createdAt: '12:27 PM',
+              message: (
+                <Text style={{fontWeight: 'normal', lineHeight: 18}}>
+                  <Text style={{color: '#943993', borderBottomWidth: 1}}>
+                    https://www.businessinsider.com/what-is-my-instagram-url?IR=T
+                  </Text>
+                  <Text style={{color: 'rgba(34, 33, 91, 0.6)'}}>
+                    This link is associated with the post where user commented
+                    and and clicked on the contact admin button.
                   </Text>
                 </Text>
               ),

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, ImageBackground, StyleSheet} from 'react-native';
+import {Text, View, Image, ImageBackground, StyleSheet} from 'react-native';
 import Button from '../components/Button';
 import themeButtonStyles from '../styles/themeButtonStyles';
 import colors from '../constants/colors';
@@ -13,7 +13,17 @@ const Connect = ({}) => {
       style={styles.container}
       source={require('../assets/images/connect.png')}>
       <View style={{width: '50%'}}>
-        <View style={[styles.iconContainer, globalStyles.shadow]}></View>
+        <View style={[styles.iconContainer, globalStyles.shadow]}>
+          <Image
+            resizeMode={'contain'}
+            style={{
+              height: 48,
+              width: 48,
+              alignSelf: 'center',
+            }}
+            source={require('../assets/images/logo.png')}
+          />
+        </View>
         <Text style={styles.title}>Application Name</Text>
       </View>
       <View>

@@ -49,8 +49,7 @@ const Login = ({params}) => {
       return;
     }
 
-    let mailFormat =
-      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
+    let mailFormat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
     if (!mailFormat.test(email)) {
       Toast.show({
         type: 'error',
@@ -84,7 +83,7 @@ const Login = ({params}) => {
         'public_profile',
         'user_friends',
       ]).then(
-        function (result) {
+        function(result) {
           console.log(result);
           if (result.isCancelled) {
             console.log('Login cancelled');
@@ -99,7 +98,7 @@ const Login = ({params}) => {
             );
           }
         },
-        function (error) {
+        function(error) {
           console.log('Login fail with error: ' + error);
         },
       );
@@ -180,7 +179,7 @@ const Login = ({params}) => {
         <ImageBackground
           style={styles.background}
           source={require('../assets/images/login.png')}>
-          <Text style={styles.title}>Application Name</Text>
+          <Text style={styles.title}>My Duty App</Text>
         </ImageBackground>
         <View
           style={[

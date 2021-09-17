@@ -61,6 +61,7 @@ const ReplyFeedback = ({navigation, route}) => {
         ]}>
         <TextInput
           value={feedback}
+          onChangeText={text => setFeedback(text)}
           multiline
           numberOfLines={5}
           textAlign="center"

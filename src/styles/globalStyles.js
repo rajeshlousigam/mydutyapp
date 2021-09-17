@@ -140,4 +140,6 @@ export default StyleSheet.create({
   font18: {fontSize: 18},
   font20: {fontSize: 20},
   listBottom: {paddingBottom: 100},
+  listBottom2: {paddingBottom: 70},
+  zIndex1: {zIndex: 1},
 });
